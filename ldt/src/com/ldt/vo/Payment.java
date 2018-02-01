@@ -13,8 +13,18 @@ public class Payment {
     private String location;
 
     private Timestamp date;
+    
+    private Integer result;
 
-    public Integer getPaymentId() {
+    public Integer getResult() {
+		return result;
+	}
+
+	public void setResult(Integer result) {
+		this.result = result;
+	}
+
+	public Integer getPaymentId() {
         return paymentId;
     }
 

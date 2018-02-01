@@ -5,8 +5,18 @@ public class Admin {
     private String adminId;
 
     private String password;
+    
+    private Integer result;
 
-    public String getAdminId() {
+    public Integer getResult() {
+		return result;
+	}
+
+	public void setResult(Integer result) {
+		this.result = result;
+	}
+
+	public String getAdminId() {
         return adminId;
     }
 

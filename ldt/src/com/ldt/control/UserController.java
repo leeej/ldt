@@ -1,10 +1,8 @@
 package com.ldt.control;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,8 +16,8 @@ public class UserController {
 	@Autowired
 	private UserDAO userDAO;
 	
-	@PostMapping
-	public User findUser(@RequestBody User user, HttpServletRequest request, HttpServletResponse response) {
+	@GetMapping
+	public User findUser(@RequestBody User user) {
 		User findUser = userDAO.selectByCarNumber(user.getCarNumber());
 		return findUser;
 	}

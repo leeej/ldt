@@ -29,4 +29,12 @@ public class PaymentDAO {
 	public void delete(int paymentId){
 		session.delete("PaymentMapper.deletePayment", paymentId);
 	}
+	
+	public Payment selectByPaymentId(int paymentId){
+		return session.selectOne("PaymentMapper.selectByPaymentId", paymentId);
+	}
+	
+	public int selectMaxPaymentId(){
+		return session.selectOne("PaymentMapper.selectMaxPaymentId");
+	}
 }

@@ -13,8 +13,26 @@ public class User {
     private String carNumber;
 
     private Integer lPoint;
+    
+    private Integer result;
 
-    public Integer getUserSerial() {
+    public Integer getlPoint() {
+		return lPoint;
+	}
+
+	public void setlPoint(Integer lPoint) {
+		this.lPoint = lPoint;
+	}
+
+	public Integer getResult() {
+		return result;
+	}
+
+	public void setResult(Integer result) {
+		this.result = result;
+	}
+
+	public Integer getUserSerial() {
         return userSerial;
     }
 
