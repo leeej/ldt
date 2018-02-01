@@ -73,4 +73,11 @@ public class Payment {
         this.location = param.getLocation();
         this.date = param.getDate();
     }
+
+	@Override
+	public String toString() {
+		return "Payment [paymentId=" + paymentId + ", userSerial=" + userSerial + ", price=" + price + ", location="
+				+ location + ", date=" + date + ", result=" + result + "]";
+	}
+    
 }

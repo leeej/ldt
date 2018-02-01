@@ -5,11 +5,11 @@
 <mapper namespace="AdminMapper">
 
 	<select id="selectAllAdmin" resultType="Admin">
-		SELECT * FROM user
+		SELECT * FROM admin
 	</select>
 	
 	<select id="selectById" resultType="Admin" parameterType="string">
-		SELECT * FROM user WHERE admin_id = #{admin_id}
+		SELECT * FROM admin WHERE admin_id = #{admin_id}
 	</select>
 
 	<insert id="insertAdmin" parameterType="Admin">

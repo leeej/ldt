@@ -1,14 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@page contentType="text/html;charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <title>Admin Page</title>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/login.js"></script>
+
 <body>
-	<input type="text" class="form-control" id="inputId" placeholder="아아디">
-	<input type="password" class="form-control" id="inputPassword" placeholder="Password">
-	<button type="submit" id="btnLogin" class="col-sm-9 btn btn-primary">Login</button>
+	<input type="text" id="loginId" placeholder="아아디">
+	<input type="password" id="loginPassword" placeholder="Password">
+	<button type="submit" id="btnLogin">Login</button>
 </body>
 </html>

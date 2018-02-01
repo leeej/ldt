@@ -90,4 +90,12 @@ public class User {
         this.carNumber = param.getCarNumber();
         this.lPoint = param.getLPoint();
     }
+
+	@Override
+	public String toString() {
+		return "User [userSerial=" + userSerial + ", userName=" + userName + ", phone1=" + phone1 + ", phone2=" + phone2
+				+ ", carNumber=" + carNumber + ", lPoint=" + lPoint + ", result=" + result + "]";
+	}
+    
+    
 }

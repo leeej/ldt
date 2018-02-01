@@ -38,4 +38,10 @@ public class Admin {
         this.adminId = param.getAdminId();
         this.password = param.getPassword();
     }
+
+	@Override
+	public String toString() {
+		return "Admin [adminId=" + adminId + ", password=" + password + ", result=" + result + "]";
+	}
+    
 }
