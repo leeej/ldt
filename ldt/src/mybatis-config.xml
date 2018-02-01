@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <typeAliases> 
+    <typeAlias alias="User" type="com.ldt.vo.User"/>
+    <typeAlias alias="Admin" type="com.ldt.vo.Admin"/>
+    <typeAlias alias="Admin" type="com.ldt.vo.Payment"/> 
+  </typeAliases>
+  
+  <mappers>
+  	<mapper resource="UserMapper.xml"/>
+    <mapper resource="AdminMapper.xml"/>
+    <mapper resource="PaymentMapper.xml"/>    
+  </mappers>
+</configuration>
