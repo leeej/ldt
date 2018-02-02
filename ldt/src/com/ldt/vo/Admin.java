@@ -2,7 +2,7 @@ package com.ldt.vo;
 
 public class Admin {
 
-    private String adminId;
+    private String admin_id;
 
     private String password;
     
@@ -16,12 +16,12 @@ public class Admin {
 		this.result = result;
 	}
 
-	public String getAdminId() {
-        return adminId;
+	public String getAdmin_id() {
+        return admin_id;
     }
 
-    public void setAdminId(String adminId) {
-        this.adminId = adminId;
+    public void setAdmin_id(String admin_id) {
+        this.admin_id = admin_id;
     }
 
     public String getPassword() {
@@ -35,13 +35,13 @@ public class Admin {
     // Admin 모델 복사
     public void CopyData(Admin param)
     {
-        this.adminId = param.getAdminId();
+        this.admin_id = param.getAdmin_id();
         this.password = param.getPassword();
     }
 
 	@Override
 	public String toString() {
-		return "Admin [adminId=" + adminId + ", password=" + password + ", result=" + result + "]";
+		return "Admin [admin_id=" + admin_id + ", password=" + password + ", result=" + result + "]";
 	}
     
 }

@@ -11,9 +11,9 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/ldt" />
-		<property name="username" value="ldt" />
-		<property name="password" value="ldt8585" />
+		<property name="url" value="jdbc:mysql://113.198.237.229:10006/ldt" />
+		<property name="username" value="root" />
+		<property name="password" value="82008200" />
 	</bean>
 
 	<!-- 마이바티스설정연결 -->

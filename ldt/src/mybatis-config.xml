@@ -6,12 +6,15 @@
   <typeAliases> 
     <typeAlias alias="User" type="com.ldt.vo.User"/>
     <typeAlias alias="Admin" type="com.ldt.vo.Admin"/>
-    <typeAlias alias="Payment" type="com.ldt.vo.Payment"/> 
+    <typeAlias alias="Payment" type="com.ldt.vo.Payment"/>
+    <typeAlias alias="Menu" type="com.ldt.vo.Menu"/> 
+    <typeAlias alias="Orderline" type="com.ldt.vo.Orderline"/> 
   </typeAliases>
   
   <mappers>
   	<mapper resource="UserMapper.xml"/>
     <mapper resource="AdminMapper.xml"/>
-    <mapper resource="PaymentMapper.xml"/>    
+    <mapper resource="PaymentMapper.xml"/>
+    <mapper resource="MenuMapper.xml"/>        
   </mappers>
 </configuration>

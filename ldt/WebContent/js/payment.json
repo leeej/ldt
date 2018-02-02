@@ -1,0 +1,16 @@
+{
+	"payment_id": 0,
+	"user": {
+		"user_id": "id1",
+		"kakao": {
+			"kakao_token": "test"
+		},
+		"user_name": "name",
+		"phone": "01012345678",
+		"car_number": "00허0000",
+		"l_point": 0
+	},
+	"orderline": [{},
+		{}
+	]
+}

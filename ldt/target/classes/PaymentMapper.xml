@@ -3,22 +3,62 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="PaymentMapper">
-
-	<select id="selectAllPayment" resultType="Payment">
-		SELECT * FROM payment
+	<resultMap type="Payment" id="PaymentMap">
+		<!-- 다른 행들과 구분해 줄 수 있는 컬럼(Primary key) -->
+		<id column="payment_id" property="payment_id" />
+		<result column="price" property="price" />
+		<result column="location" property="location" />
+		<result column="date" property="date" />
+		<!-- Payment:User의 관계가 1:1 association -->
+		<association property="user" javaType="User">
+			<id column="user_id" property="user_id" />
+			<result column="user_name" property="user_name" />
+			<result column="phone" property="phone" />
+			<result column="car_number" property="car_number" />
+			<result column="l_point" property="l_point" />
+		</association>
+		<!-- Payment:Orderline의 관계가 1:many collection -->
+		<collection property="orderline" ofType="Orderline">
+			<id column="order_id" property="order_id"/>
+			<id column="menu_id" property="menu.menu_id"/>
+			<result column="quantity" property="quantity"/>
+			<!-- Orderline:Menu의 관계가 1:1 association -->
+			<association property="menu" javaType="Menu">
+				<id column="menu_id" property="menu_id"/>
+				<result column="menu_name" property="menu_name"/>
+				<result column="menu_price" property="menu_price"/>
+			</association>
+		</collection>
+	</resultMap>
+	
+	<select id="selectAllPayment" resultMap="PaymentMap">
+		SELECT * FROM payment 
+		JOIN user ON payment.user_id = user.user_id
+		JOIN orderline ON payment.payment_id = orderline.order_id
+		JOIN menu ON menu.menu_id = orderline.menu_id
+		ORDER BY payment_id
 	</select>
 	
 	<select id="selectByPaymentId" resultType="Payment" parameterType="int">
-		SELECT * FROM payment WHERE payment_id = #{payment_id}
-	</select>
-	
-	<select id="selectMaxPaymentId" resultType="int">
-		SELECT MAX(payment_id) FROM payment
+		SELECT * FROM payment 
+		JOIN user ON payment.user_id = user.user_id
+		JOIN orderline ON payment.payment_id = orderline.order_id
+		JOIN menu ON menu.menu_id = orderline.menu_id
+		WHERE payment_id = #{payment_id}
 	</select>
 
 	<insert id="insertPayment" parameterType="Payment">
 		INSERT INTO payment
-		VALUES (#{admin_id}, #{password})
+		VALUES (null , #{user_id}, sysdate())
+	</insert>
+	
+	<insert id="insertLine" parameterType="Orderline">
+		<!-- order="BEFORE" insert구문을 수행하기 전에 select작업을 수행하라 -->
+		<selectKey keyProperty="order_id" resultType="int" order="BEFORE">
+			<!-- 주문번호 최대값 반환, 없으면 null대신 0 반환 -->
+			SELECT NVL(MAX(payment_id), 0) FROM payment
+		</selectKey>
+		INSERT INTO orderline VALUES (#{order_id}, #{menu.menu_id}, #{quantity})
 	</insert>
 	
 	<delete id="deletePayment" parameterType="int">

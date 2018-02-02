@@ -1,6 +1,5 @@
 package com.ldt.control;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +17,7 @@ public class UserController {
 	
 	@GetMapping
 	public User findUser(@RequestBody User user) {
-		User findUser = userDAO.selectByCarNumber(user.getCarNumber());
+		User findUser = userDAO.selectByCarNumber(user.getCar_number());
 		return findUser;
 	}
 	

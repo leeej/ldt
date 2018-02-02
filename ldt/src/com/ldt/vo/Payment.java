@@ -1,83 +1,74 @@
 package com.ldt.vo;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public class Payment {
 
-    private Integer paymentId;
+    private Integer payment_id;
 
-    private Integer userSerial;
-
-    private Integer price;
-
-    private String location;
+    private User user;
+    
+    private List<Orderline> orderline;
+    
+    private Integer total_price;
 
     private Timestamp date;
     
-    private Integer result;
+    private String result;
 
-    public Integer getResult() {
+	public Integer getPayment_id() {
+		return payment_id;
+	}
+
+	public void setPayment_id(Integer payment_id) {
+		this.payment_id = payment_id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<Orderline> getOrderline() {
+		return orderline;
+	}
+
+	public void setOrderline(List<Orderline> orderline) {
+		this.orderline = orderline;
+	}
+
+	public Timestamp getDate() {
+		return date;
+	}
+
+	public void setDate(Timestamp date) {
+		this.date = date;
+	}
+
+	public String getResult() {
 		return result;
 	}
 
-	public void setResult(Integer result) {
+	public void setResult(String result) {
 		this.result = result;
 	}
-
-	public Integer getPaymentId() {
-        return paymentId;
-    }
-
-    public void setPaymentId(Integer paymentId) {
-        this.paymentId = paymentId;
-    }
-
-    public Integer getUserSerial() {
-        return userSerial;
-    }
-
-    public void setUserSerial(Integer userSerial) {
-        this.userSerial = userSerial;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public Timestamp getDate() {
-        return date;
-    }
-
-    public void setDate(Timestamp date) {
-        this.date = date;
-    }
-
-    // Payment 모델 복사
-    public void CopyData(Payment param)
-    {
-        this.paymentId = param.getPaymentId();
-        this.userSerial = param.getUserSerial();
-        this.price = param.getPrice();
-        this.location = param.getLocation();
-        this.date = param.getDate();
-    }
+	
+	public Integer getTotal_price() {
+		return total_price;
+	}
+	
+	public void setTotal_price(Integer total_price) {
+		this.total_price = total_price;
+	}
 
 	@Override
 	public String toString() {
-		return "Payment [paymentId=" + paymentId + ", userSerial=" + userSerial + ", price=" + price + ", location="
-				+ location + ", date=" + date + ", result=" + result + "]";
+		return "Payment [payment_id=" + payment_id + ", user=" + user + ", orderline=" + orderline + ", total_price="
+				+ total_price + ", date=" + date + ", result=" + result + "]";
 	}
-    
+	
 }

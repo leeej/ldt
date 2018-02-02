@@ -2,100 +2,82 @@ package com.ldt.vo;
 
 public class User {
 
-    private Integer userSerial;
+    private String user_id;
 
-    private String userName;
+    private Kakao kakao;
 
-    private String phone1;
+    private String user_name;
 
-    private String phone2;
+    private String phone;
 
-    private String carNumber;
+    private String car_number;
 
-    private Integer lPoint;
+    private Integer l_point;
     
-    private Integer result;
+    private String result;
 
-    public Integer getlPoint() {
-		return lPoint;
+	public String getUser_id() {
+		return user_id;
 	}
 
-	public void setlPoint(Integer lPoint) {
-		this.lPoint = lPoint;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
-	public Integer getResult() {
+	public Kakao getKakao() {
+		return kakao;
+	}
+
+	public void setKakao(Kakao kakao) {
+		this.kakao = kakao;
+	}
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getCar_number() {
+		return car_number;
+	}
+
+	public void setCar_number(String car_number) {
+		this.car_number = car_number;
+	}
+
+	public Integer getL_point() {
+		return l_point;
+	}
+
+	public void setL_point(Integer l_point) {
+		this.l_point = l_point;
+	}
+
+	public String getResult() {
 		return result;
 	}
 
-	public void setResult(Integer result) {
+	public void setResult(String result) {
 		this.result = result;
 	}
 
-	public Integer getUserSerial() {
-        return userSerial;
-    }
-
-    public void setUserSerial(Integer userSerial) {
-        this.userSerial = userSerial;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPhone1() {
-        return phone1;
-    }
-
-    public void setPhone1(String phone1) {
-        this.phone1 = phone1;
-    }
-
-    public String getPhone2() {
-        return phone2;
-    }
-
-    public void setPhone2(String phone2) {
-        this.phone2 = phone2;
-    }
-
-    public String getCarNumber() {
-        return carNumber;
-    }
-
-    public void setCarNumber(String carNumber) {
-        this.carNumber = carNumber;
-    }
-
-    public Integer getLPoint() {
-        return lPoint;
-    }
-
-    public void setLPoint(Integer lPoint) {
-        this.lPoint = lPoint;
-    }
-
-    // User 모델 복사
-    public void CopyData(User param)
-    {
-        this.userSerial = param.getUserSerial();
-        this.userName = param.getUserName();
-        this.phone1 = param.getPhone1();
-        this.phone2 = param.getPhone2();
-        this.carNumber = param.getCarNumber();
-        this.lPoint = param.getLPoint();
-    }
-
 	@Override
 	public String toString() {
-		return "User [userSerial=" + userSerial + ", userName=" + userName + ", phone1=" + phone1 + ", phone2=" + phone2
-				+ ", carNumber=" + carNumber + ", lPoint=" + lPoint + ", result=" + result + "]";
+		return "User [user_id=" + user_id + ", kakao=" + kakao + ", user_name=" + user_name + ", phone=" + phone
+				+ ", car_number=" + car_number + ", l_point=" + l_point + ", result=" + result + "]";
 	}
-    
-    
+
+	
+
 }

@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ldt.vo.Orderline;
 import com.ldt.vo.Payment;
 
 @Repository
@@ -20,21 +21,9 @@ public class PaymentDAO {
 	
 	public void insert(Payment payment){
 		session.insert("PaymentMapper.insertPayment", payment);
+		for(Orderline line: payment.getOrderline()){
+			session.insert("PaymentMapper.insertLine", line);
+		}
 	}
 	
-	public void update(Payment payment){
-		session.update("PaymentMapper.updatePayment", payment);
-	}
-	
-	public void delete(int paymentId){
-		session.delete("PaymentMapper.deletePayment", paymentId);
-	}
-	
-	public Payment selectByPaymentId(int paymentId){
-		return session.selectOne("PaymentMapper.selectByPaymentId", paymentId);
-	}
-	
-	public int selectMaxPaymentId(){
-		return session.selectOne("PaymentMapper.selectMaxPaymentId");
-	}
 }
