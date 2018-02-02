@@ -44,13 +44,12 @@ public class AdminController {
 	}
 	
 	@PostMapping("/login")
-	public Admin login(@RequestBody Admin admin, HttpServletRequest request, HttpServletResponse response, HttpSession session) {
-		System.out.println("admin:"+admin);
+	public Admin login(@RequestBody Admin admin, HttpServletRequest request, HttpServletResponse response) {
 		Admin selectedAdmin = adminDAO.selectById(admin.getAdmin_id());
-		System.out.println("selectedAdmin:"+selectedAdmin);
 		admin.setResult(0);
 		if(admin.getPassword().equals(selectedAdmin.getPassword())){
 			admin.setResult(1);
+			HttpSession session = request.getSession();
 			session.setAttribute("loginInfo", admin);
 			session.setMaxInactiveInterval(10000);
 		}
@@ -58,8 +57,9 @@ public class AdminController {
 	}
 	
 	@GetMapping("/logout")
-	public void logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	public void logout(HttpServletRequest request, HttpServletResponse response) {
 		try {
+			HttpSession session = request.getSession();
 			session.removeAttribute("loginInfo");
 			String forwardURL = "/admin";
 			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardURL);
@@ -73,19 +73,23 @@ public class AdminController {
 
 	@GetMapping("/paymentList")
 	public void findAllPayment(HttpServletRequest request, HttpServletResponse response) {
-		List<Payment> allPayment = paymentDAO.selectAllPayment();
-		for(Payment payment: allPayment){
-			int total_price = 0;
-			for(Orderline orderline: payment.getOrderline()){
-				int price = orderline.getMenu().getMenu_price(); 
-				int quantity = orderline.getQuantity();
-				total_price += price*quantity;
+		HttpSession session = request.getSession();
+		String forwardURL = "/admin";
+		if(session.getAttribute("loginInfo") != null){
+			forwardURL = "/admin/index.jsp";
+			List<Payment> allPayment = paymentDAO.selectAllPayment();
+			for(Payment payment: allPayment){
+				int total_price = 0;
+				for(Orderline orderline: payment.getOrderline()){
+					int price = orderline.getMenu().getMenu_price(); 
+					int quantity = orderline.getQuantity();
+					total_price += price*quantity;
+				}
+				payment.setTotal_price(total_price);
 			}
-			payment.setTotal_price(total_price);
-		}
-		try {
-			String forwardURL = "/admin/index.jsp";
 			request.setAttribute("allPayment", allPayment);
+		}
+		try {			
 			RequestDispatcher dispatcher = request.getRequestDispatcher(forwardURL);
 			dispatcher.forward(request, response);
 		} catch (ServletException e) {
@@ -93,6 +97,7 @@ public class AdminController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 }

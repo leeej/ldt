@@ -17,4 +17,8 @@ public class MenuDAO {
 	public List<Menu> selectAllMenu(){
 		return session.selectList("MenuMapper.selectAllMenu");
 	}
+
+	public Menu selectByMenu_id(int menu_id) {
+		return session.selectOne("MenuMapper.selectByMenu_id", menu_id);
+	}
 }

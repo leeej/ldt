@@ -26,4 +26,8 @@ public class PaymentDAO {
 		}
 	}
 	
+	public void update(int payment_id){
+		session.update("PaymentMapper.updatePayment", payment_id);
+	}
+	
 }

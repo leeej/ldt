@@ -15,6 +15,8 @@ public class Payment {
 
     private Timestamp date;
     
+    private String is_paid;
+    
     private String result;
 
 	public Integer getPayment_id() {
@@ -49,6 +51,14 @@ public class Payment {
 		this.date = date;
 	}
 
+	public String getIs_paid() {
+		return is_paid;
+	}
+
+	public void setIs_paid(String is_paid) {
+		this.is_paid = is_paid;
+	}
+	
 	public String getResult() {
 		return result;
 	}
@@ -68,7 +78,8 @@ public class Payment {
 	@Override
 	public String toString() {
 		return "Payment [payment_id=" + payment_id + ", user=" + user + ", orderline=" + orderline + ", total_price="
-				+ total_price + ", date=" + date + ", result=" + result + "]";
+				+ total_price + ", date=" + date + ", is_paid=" + is_paid + ", result=" + result + "]";
 	}
+
 	
 }

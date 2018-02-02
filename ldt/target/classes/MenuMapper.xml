@@ -7,5 +7,10 @@
 	<select id="selectAllMenu" resultType="Menu">
 		SELECT * FROM menu
 	</select>
+	
+	<select id="selectByMenu_id" resultType="Menu" parameterType="int">
+		SELECT * FROM menu 
+		WHERE menu_id = #{menu_id}
+	</select>
 
 </mapper>

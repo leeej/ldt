@@ -21,8 +21,7 @@ $(function(){
 						admin = responseData;
 						if(admin.result == 1){
 							alert("로그인 성공");
-							console.log("11111");
-							doRedirect("/payment");
+							location.href = "/admin/paymentList";
 						}else if(data < 1){
 							alert("로그인 실패");
 						}else{
@@ -30,12 +29,6 @@ $(function(){
 						}
 					 }
 		});
-		
-		function doRedirect(){
-			console.log("222");
-			location.href='/admin/paymentList';
-		}
-		
 		return false;
 	});
 	

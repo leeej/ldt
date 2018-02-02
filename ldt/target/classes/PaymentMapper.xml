@@ -6,9 +6,8 @@
 	<resultMap type="Payment" id="PaymentMap">
 		<!-- 다른 행들과 구분해 줄 수 있는 컬럼(Primary key) -->
 		<id column="payment_id" property="payment_id" />
-		<result column="price" property="price" />
-		<result column="location" property="location" />
 		<result column="date" property="date" />
+		<result column="is_paid" property="is_paid" /> 
 		<!-- Payment:User의 관계가 1:1 association -->
 		<association property="user" javaType="User">
 			<id column="user_id" property="user_id" />
@@ -49,17 +48,22 @@
 
 	<insert id="insertPayment" parameterType="Payment">
 		INSERT INTO payment
-		VALUES (null , #{user_id}, sysdate())
+		VALUES (null , #{user.user_id}, sysdate(), 'N')
 	</insert>
 	
 	<insert id="insertLine" parameterType="Orderline">
 		<!-- order="BEFORE" insert구문을 수행하기 전에 select작업을 수행하라 -->
 		<selectKey keyProperty="order_id" resultType="int" order="BEFORE">
 			<!-- 주문번호 최대값 반환, 없으면 null대신 0 반환 -->
-			SELECT NVL(MAX(payment_id), 0) FROM payment
+			SELECT IFNULL(MAX(payment_id), 0) FROM payment
 		</selectKey>
 		INSERT INTO orderline VALUES (#{order_id}, #{menu.menu_id}, #{quantity})
 	</insert>
+	
+	<update id="updatePayment" parameterType="int">
+		UPDATE payment SET is_paid = 'Y'
+		WHERE payment_id = #{payment_id}
+	</update>
 	
 	<delete id="deletePayment" parameterType="int">
 		DELETE payment
