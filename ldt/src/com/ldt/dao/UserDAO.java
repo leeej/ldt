@@ -14,8 +14,8 @@ public class UserDAO {
 	@Autowired
 	private SqlSession session;
 	
-	public User selectByCarNumber(String carNumber){
-		return session.selectOne("UserMapper.selectByCarNumber", carNumber);
+	public User selectByUser_id(String user_id){
+		return session.selectOne("UserMapper.selectByUser_id", user_id);
 	}
 	
 	public List<User> selectAllUser(){

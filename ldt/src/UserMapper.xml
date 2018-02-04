@@ -4,8 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserMapper">
 
-	<select id="selectByCarNumber" resultType="User" parameterType="string">
-		SELECT * FROM user WHERE car_number = #{car_number}
+	<select id="selectByUser_id" resultType="User" parameterType="string">
+		SELECT * FROM user WHERE user_id = #{user_id}
 	</select>
 
 	<select id="selectAllUser" resultType="User">

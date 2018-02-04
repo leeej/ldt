@@ -17,7 +17,7 @@ public class UserController {
 	
 	@GetMapping
 	public User findUser(@RequestBody User user) {
-		User findUser = userDAO.selectByCarNumber(user.getCar_number());
+		User findUser = userDAO.selectByUser_id(user.getUser_id());
 		return findUser;
 	}
 	
