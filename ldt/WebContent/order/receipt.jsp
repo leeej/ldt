@@ -10,9 +10,8 @@
 <body>
 <table>
       <tr><th>메뉴</th><th>갯수</th><th>금액</th><th>총액</th><th>일시</th></tr>
-<c:forEach var="payment" items="${allPayment}">
 	<tr>
-	<c:forEach var="orderline" items="${payment.orderline}">
+	<c:forEach var="orderline" items="${payment.getOrderline()}">
 		<tr>
 		<td>${orderline.getMenu().getMenu_name() }</td>
 		<td>${orderline.quantity }</td>
@@ -22,7 +21,6 @@
 	<td >${payment.getTotal_price() }</td>
 	<td ><fmt:formatDate value="${payment.date }" pattern="yyyy.MM.dd HH:MM:SS"/></td>
 	</tr>
-</c:forEach>
 </table>
 </body>
 </html>

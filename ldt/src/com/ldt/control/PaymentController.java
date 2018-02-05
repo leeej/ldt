@@ -20,6 +20,7 @@ import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,6 +32,7 @@ import com.ldt.vo.Orderline;
 import com.ldt.vo.Payment;
 import com.ldt.vo.User;
 
+@RequestMapping("/order")
 @RestController
 public class PaymentController {
 	@Autowired
@@ -40,8 +42,9 @@ public class PaymentController {
 	@Autowired
 	private MenuDAO menuDAO;
 	
-	@GetMapping("/order")
-	public void goIndex(@RequestParam("user_id") String user_id, @RequestParam("menu_id") Integer menu_id, HttpServletRequest request, HttpServletResponse response){
+	@GetMapping
+	public void goIndex(@RequestParam("user_id") String user_id, @RequestParam("menu_id") Integer menu_id, 
+			HttpServletRequest request, HttpServletResponse response){
 		List<Menu> menus = menuDAO.selectAllMenu(); 
 		String forwardURL = "/order/order.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardURL);
@@ -105,19 +108,24 @@ public class PaymentController {
 	}
 	
 	@GetMapping("/payment")
-	public void goPayment(@RequestParam("car_number") String car_number){
+	public int goPayment(@RequestParam("car_number") String car_number){
 		Payment payment = paymentDAO.selectByCar_number(car_number);
+		if(payment == null){
+			return -1;
+		}
 		paymentDAO.update(payment.getPayment_id());
 		try {
 			sendMesageAPI(payment);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return 1;
+		
 	}
 	
 	@GetMapping("/receipt")
 	public void goReceipt(@RequestParam("payment_id") Integer payment_id, HttpServletRequest request, HttpServletResponse response){
-		String forwardURL = "/receipt.jsp";
+		String forwardURL = "/order/receipt.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardURL);
 		Payment payment = paymentDAO.selectByPayment_id(payment_id);
 		request.setAttribute("payment", payment);
@@ -150,7 +158,7 @@ public class PaymentController {
 		String meesagePlatformUrl="http://210.93.181.229:9090/v1/send/kakao-friend";
 		String authKey="Y2xhc3M6c2VjcmV0MTIhQA==";
 		String sender_key = "d6b73318d4927aa80df1022e07fecf06c55b44bf";
-		String receiptURL = "http://113.198.237.229:8080/receipt?payment_id="+payment.getPayment_id();
+		String receiptURL = "http://113.198.237.229:8080/order/receipt?payment_id="+payment.getPayment_id();
 		String message = "\"[롯데리아] 결제 안내 알림\\n\\n "+user.getUser_name()+"고객님, 결제가 완료되었습니다.\\n\\n 자세한 결제 내역은 링크를 통해 확인해주세요.\\n\\n  감사합니다.(하하)\\n\\n\","
 		+"\"button\" : [{\"name\":\"결제 내역 확인\",\"type\":\"WL\",\"url_mobile\":\""+receiptURL+"\"}]";
 		CloseableHttpClient httpclient = HttpClients.createDefault();

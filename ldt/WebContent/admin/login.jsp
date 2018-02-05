@@ -81,7 +81,7 @@ var STYLE_PREFIX = 'wsite';
 	
 	function initFlyouts(){
 		initPublishedFlyoutMenus(
-			[{"id":"286195793459059658","title":"Home","url":"/ldt/admin","target":"","nav_menu":false,"nonclickable":false}],
+			[{"id":"286195793459059658","title":"Home","url":"/admin","target":"","nav_menu":false,"nonclickable":false}],
 			"286195793459059658",
 			'',
 			'active',
@@ -97,7 +97,7 @@ var STYLE_PREFIX = 'wsite';
 	</head>
 	<!-- Script Inserted -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script type='text/javascript' src="/ldt/js/login.js"></script>
+	<script type='text/javascript' src="/js/login.js"></script>
 	
 	<body class="header-page  wsite-page-index  full-width-body-off header-overlay-off alt-nav-off  wsite-theme-light"><div class="wrapper">
     <div class="birdseye-header">
@@ -113,7 +113,7 @@ var STYLE_PREFIX = 'wsite';
           <div class="nav desktop-nav"><ul class="wsite-menu-default">
 		<li id="active" class="wsite-menu-item-wrap">
 			<a
-						href="/ldt/admin"
+						href="/admin"
 				class="wsite-menu-item"
 				>
 				Home
@@ -150,7 +150,7 @@ var STYLE_PREFIX = 'wsite';
 </div>
 
 <div style="text-align:center;"><div style="height: 10px; overflow: hidden;"></div>
-<a class="wsite-button wsite-button-large wsite-button-highlight" href="" >
+<a class="wsite-button wsite-button-large wsite-button-highlight">
 <!-- <span class="wsite-button-inner">Log in</span> -->
 <button class="wsite-button-inner" type="submit" id="btnLogin">Log in</button>
 </a>

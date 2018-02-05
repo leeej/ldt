@@ -1,5 +1,6 @@
 <%@page contentType="text/html;charset=UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,9 @@
 		<c:choose>
 			<c:when test="${!empty recommend_menu }">
 				<img src="${recommend_menu.getMenu_img() }"><br>
-				[${recommend_menu.getMenu_name() }] ${recommend_menu.getMenu_price() }원<br>
+				[${recommend_menu.getMenu_name() }] <br>
+				<fmt:formatNumber value="${recommend_menu.getMenu_kcal()}" type="number"/>kcal
+				<fmt:formatNumber value="${recommend_menu.getMenu_price() }" type="currency"/><br>
 				<select id="menu">
 					<option value="${recommend_menu.getMenu_name() }" selected>${recommend_menu.getMenu_name() }</option>
 				</select>
@@ -24,7 +27,9 @@
 			<c:otherwise>
 				<c:forEach var="menu" items="${menus}">
 					<img src="${menu.getMenu_img()}"><br>
-					[${menu.getMenu_name() }] ${menu.getMenu_price() }원<br>
+					[${menu.getMenu_name() }]<br>
+					<fmt:formatNumber value="${menu.getMenu_kcal()}" type="number"/>kcal
+					<fmt:formatNumber value="${menu.getMenu_price() }" type="currency"/><br>
 				</c:forEach>
 				<select id="menu">
 				<c:forEach var="menu" items="${menus}">

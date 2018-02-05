@@ -10,6 +10,8 @@ public class Menu {
     
     private String menu_img;
     
+    private Integer menu_kcal;
+    
     private String result;
 
 	public Integer getMenu_id() {
@@ -43,6 +45,14 @@ public class Menu {
 	public void setMenu_img(String menu_img) {
 		this.menu_img = menu_img;
 	}
+	
+	public Integer getMenu_kcal() {
+		return menu_kcal;
+	}
+	
+	public void setMenu_kcal(Integer menu_kcal) {
+		this.menu_kcal = menu_kcal;
+	}
 
 	public String getResult() {
 		return result;
@@ -58,6 +68,7 @@ public class Menu {
 		int result = 1;
 		result = prime * result + ((menu_id == null) ? 0 : menu_id.hashCode());
 		result = prime * result + ((menu_img == null) ? 0 : menu_img.hashCode());
+		result = prime * result + ((menu_kcal == null) ? 0 : menu_kcal.hashCode());
 		result = prime * result + ((menu_name == null) ? 0 : menu_name.hashCode());
 		result = prime * result + ((menu_price == null) ? 0 : menu_price.hashCode());
 		result = prime * result + ((this.result == null) ? 0 : this.result.hashCode());
@@ -83,6 +94,11 @@ public class Menu {
 				return false;
 		} else if (!menu_img.equals(other.menu_img))
 			return false;
+		if (menu_kcal == null) {
+			if (other.menu_kcal != null)
+				return false;
+		} else if (!menu_kcal.equals(other.menu_kcal))
+			return false;
 		if (menu_name == null) {
 			if (other.menu_name != null)
 				return false;
@@ -104,7 +120,7 @@ public class Menu {
 	@Override
 	public String toString() {
 		return "Menu [menu_id=" + menu_id + ", menu_name=" + menu_name + ", menu_price=" + menu_price + ", menu_img="
-				+ menu_img + ", result=" + result + "]";
+				+ menu_img + ", menu_kcal=" + menu_kcal + ", result=" + result + "]";
 	}
 
     
