@@ -151,17 +151,15 @@ public class PaymentController {
 		String meesagePlatformUrl="http://210.93.181.229:9090/v1/send/kakao-friend";
 		String authKey="Y2xhc3M6c2VjcmV0MTIhQA==";
 		String sender_key = "d6b73318d4927aa80df1022e07fecf06c55b44bf";
-		//String receiptURL = "http://113.198.237.229:8080/receipt?payment_id="+payment.getPayment_id();
-		String receiptURL = "http://www.naver.com";
-		String message = "\"[롯데리아] 결제 안내 알림\n\n "+user.getUser_name()+"고객님, 결제가 완료되었습니다.\n\n 자세한 결제 내역은 링크를 통해 확인해주세요.\n\n  감사합니다.(하하)\n\n\","
+		String receiptURL = "http://113.198.237.229:8080/receipt?payment_id="+payment.getPayment_id();
+		String message = "\"[롯데리아] 결제 안내 알림\\n\\n "+user.getUser_name()+"고객님, 결제가 완료되었습니다.\\n\\n 자세한 결제 내역은 링크를 통해 확인해주세요.\\n\\n  감사합니다.(하하)\\n\\n\","
 		+"\"button\" : [{\"name\":\"결제 내역 확인\",\"type\":\"WL\",\"url_mobile\":\""+receiptURL+"\"}]";
-		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		try {
 			HttpPost httpPost = new HttpPost(meesagePlatformUrl);
 			httpPost.setHeader("Authorization", "Basic " + authKey);
 			httpPost.setHeader("Content-Type", "application/json; charset=UTF-8");
-			String body2 = "{ \"msg_id\" : \"iot\", \"dest_phone\" : \"" + user.getPhone() + "\", \"send_phone\" : \""
+			String body2 = "{ \"msg_id\" : \"iot\", \"send_time\" : \"\",\"dest_phone\" : \"" + user.getPhone() + "\", \"send_phone\" : \""
 					+ user.getPhone() + "\", \"sender_key\" : \"" + sender_key + "\", \"msg_body\" : " + message
 					+ ", \"ad_flag\" : \"N\" }";
 
@@ -177,7 +175,7 @@ public class PaymentController {
 					org.apache.http.HttpEntity entity2 = (org.apache.http.HttpEntity) res.getEntity();
 					System.out.println(EntityUtils.toString(entity2));
 				} else {
-					System.out.println("eerr");
+					System.out.println(res.getStatusLine().getStatusCode());
 				}
 			} finally {
 				res.close();
