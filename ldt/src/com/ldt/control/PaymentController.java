@@ -40,11 +40,10 @@ public class PaymentController {
 	@Autowired
 	private MenuDAO menuDAO;
 	
-	@GetMapping("/")
-	public void goIndex(@RequestParam("user_id") String user_id, @RequestParam("menu_id") Integer menu_id,
-			HttpServletRequest request, HttpServletResponse response){
+	@GetMapping("/order")
+	public void goIndex(@RequestParam("user_id") String user_id, @RequestParam("menu_id") Integer menu_id, HttpServletRequest request, HttpServletResponse response){
 		List<Menu> menus = menuDAO.selectAllMenu(); 
-		String forwardURL = "/order.jsp";
+		String forwardURL = "/order/order.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardURL);
 		HttpSession session = request.getSession();
 		User user = userDAO.selectByUser_id(user_id);

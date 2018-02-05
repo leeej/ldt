@@ -47,7 +47,7 @@ public class AdminController {
 	public Admin login(@RequestBody Admin admin, HttpServletRequest request, HttpServletResponse response) {
 		Admin selectedAdmin = adminDAO.selectById(admin.getAdmin_id());
 		admin.setResult(0);
-		if(admin.getPassword().equals(selectedAdmin.getPassword())){
+		if(!admin.getPassword().isEmpty() && admin.getPassword().equals(selectedAdmin.getPassword())){
 			admin.setResult(1);
 			HttpSession session = request.getSession();
 			session.setAttribute("loginInfo", admin);
