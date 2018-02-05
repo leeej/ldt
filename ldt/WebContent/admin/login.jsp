@@ -13,7 +13,7 @@
 		<link id="wsite-base-style" rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/sites.css?buildTime=1234" />
 <link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/old/fancybox.css?1234" />
 <link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/social-icons.css?buildtime=1234" media="screen,projection" />
-<link rel="stylesheet" type="text/css" href="admin/files/main_style.css?1517743598" title="wsite-theme-css" />
+<link rel="stylesheet" type="text/css" href="files/main_style.css?1517743598" title="wsite-theme-css" />
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
 
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
@@ -106,7 +106,7 @@ var STYLE_PREFIX = 'wsite';
           <div class="logo"><span class="wsite-logo">
 
 	<a href="">
-		<img src="admin/images/logo1.jpg" alt="Oikos" />
+		<img src="images/logo1.jpg" alt="LOTTE" />
 	</a>
 
 </span></div>
@@ -130,7 +130,7 @@ var STYLE_PREFIX = 'wsite';
     <div class="banner-wrap">
       <div class="wsite-elements wsite-not-footer wsite-header-elements">
 	<div class="wsite-section-wrap">
-	<div  class="wsite-section wsite-header-section wsite-section-bg-image" style="height: 721px;background-image: url(&quot;admin/images/admin_background.jpg&quot;) ;background-repeat: no-repeat ;background-position: 50.00% 100.00% ;background-size: 100% ;background-color: transparent ;background-size: cover;" >
+	<div  class="wsite-section wsite-header-section wsite-section-bg-image" style="height: 721px;background-image: url(&quot;images/admin_background.jpg&quot;) ;background-repeat: no-repeat ;background-position: 50.00% 100.00% ;background-size: 100% ;background-color: transparent ;background-size: cover;" >
 		<div class="wsite-section-content">
 			
           <div class="container">
@@ -203,8 +203,8 @@ var STYLE_PREFIX = 'wsite';
     </ul>
   </div>
 
-	<script type="text/javascript" src="admin/files/theme/plugins.js"></script>
-  <script type="text/javascript" src="admin/files/theme/custom.js"></script>
+	<script type="text/javascript" src="files/theme/plugins.js"></script>
+  <script type="text/javascript" src="files/theme/custom.js"></script>
 
 		
 	</body>

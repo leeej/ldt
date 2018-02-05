@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link type="text/css" rel="stylesheet" href="files/table.css"/>
 <title>Admin Page</title>
 </head>
 <body>
@@ -24,10 +25,12 @@
 				<td>${orderline.getMenu().getMenu_name() }</td>
 				<td>${orderline.quantity }</td>
 				<td>${orderline.getMenu().getMenu_price() * orderline.quantity }</td>
+				<c:if test="${payment.getOrderline().get(0) == orderline }">
+				<td rowspan="${payment.getOrderline().size() }">${payment.getTotal_price() }</td>
+				<td rowspan="${payment.getOrderline().size() }"><fmt:formatDate value="${payment.date }" pattern="yyyy.MM.dd HH:MM:SS"/></td>
+				</c:if>
 				</tr>
 			</c:forEach>
-			<td >${payment.getTotal_price() }</td>
-			<td ><fmt:formatDate value="${payment.date }" pattern="yyyy.MM.dd HH:MM:SS"/></td>
 			</tr>
 		</c:forEach>
 		</table>
