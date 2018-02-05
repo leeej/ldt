@@ -7,6 +7,10 @@
 	<select id="selectByUser_id" resultType="User" parameterType="string">
 		SELECT * FROM user WHERE user_id = #{user_id}
 	</select>
+	
+	<select id="selectByCar_number" resultType="User" parameterType="string">
+		SELECT * FROM user WHERE car_number = #{car_number}
+	</select>
 
 	<select id="selectAllUser" resultType="User">
 		SELECT * FROM user

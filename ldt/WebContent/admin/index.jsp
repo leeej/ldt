@@ -27,7 +27,7 @@
 				</tr>
 			</c:forEach>
 			<td >${payment.getTotal_price() }</td>
-			<td ><fmt:formatDate value="${payment.date }" pattern="yyyy.MM.dd"/></td>
+			<td ><fmt:formatDate value="${payment.date }" pattern="yyyy.MM.dd HH:MM:SS"/></td>
 			</tr>
 		</c:forEach>
 		</table>

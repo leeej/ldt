@@ -19,6 +19,14 @@ public class PaymentDAO {
 		return session.selectList("PaymentMapper.selectAllPayment");
 	}
 	
+	public Payment selectByCar_number(String car_number){
+		return session.selectOne("PaymentMapper.selectByCar_number", car_number);
+	}
+	
+	public Payment selectByPayment_id(int payment_id){
+		return session.selectOne("PaymentMapper.selectByPayment_id", payment_id);
+	}
+	
 	public void insert(Payment payment){
 		session.insert("PaymentMapper.insertPayment", payment);
 		for(Orderline line: payment.getOrderline()){

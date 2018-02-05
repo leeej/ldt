@@ -38,13 +38,22 @@
 		ORDER BY payment_id
 	</select>
 	
-	<select id="selectByPaymentId" resultType="Payment" parameterType="int">
+	<select id="selectByCar_number" resultMap="PaymentMap" parameterType="string">
+		SELECT * FROM payment 
+		JOIN user ON payment.user_id = user.user_id
+		JOIN orderline ON payment.payment_id = orderline.order_id
+		JOIN menu ON menu.menu_id = orderline.menu_id
+		WHERE user.car_number = #{car_number} AND payment.is_paid = 'N'
+	</select>
+
+	<select id="selectByPayment_id" resultMap="PaymentMap" parameterType="int">
 		SELECT * FROM payment 
 		JOIN user ON payment.user_id = user.user_id
 		JOIN orderline ON payment.payment_id = orderline.order_id
 		JOIN menu ON menu.menu_id = orderline.menu_id
 		WHERE payment_id = #{payment_id}
 	</select>
+
 
 	<insert id="insertPayment" parameterType="Payment">
 		INSERT INTO payment

@@ -13,11 +13,26 @@
 	<c:when test="${empty sessionScope.user }">잘못된 접근입니다.</c:when>
 	<c:otherwise>
 	<h2>${sessionScope.user.getUser_id() }(${sessionScope.user.getUser_name() })님 어서오세요.</h2>
-	<select id="menu">
-		<c:forEach var="menu" items="${menus}">
-			<option value="${menu.getMenu_id() }">${menu.getMenu_name() }</option>
-		</c:forEach>
-	</select>
+		<c:choose>
+			<c:when test="${!empty recommend_menu }">
+				<img src="${recommend_menu.getMenu_img() }"><br>
+				[${recommend_menu.getMenu_name() }] ${recommend_menu.getMenu_price() }원<br>
+				<select id="menu">
+					<option value="${recommend_menu.getMenu_name() }" selected>${recommend_menu.getMenu_name() }</option>
+				</select>
+			</c:when>
+			<c:otherwise>
+				<c:forEach var="menu" items="${menus}">
+					<img src="${menu.getMenu_img()}"><br>
+					[${menu.getMenu_name() }] ${menu.getMenu_price() }원<br>
+				</c:forEach>
+				<select id="menu">
+				<c:forEach var="menu" items="${menus}">
+					<option value="${menu.getMenu_id() }">${menu.getMenu_name() }</option>
+				</c:forEach>
+				</select>
+			</c:otherwise>
+		</c:choose>
 	<select id="quantity">
 		<c:forEach var="i" begin="1" end="10">
 	       <option value="${i}">${i}</option>

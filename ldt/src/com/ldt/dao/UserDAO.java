@@ -18,6 +18,10 @@ public class UserDAO {
 		return session.selectOne("UserMapper.selectByUser_id", user_id);
 	}
 	
+	public User selectByCar_number(String car_number){
+		return session.selectOne("UserMapper.selectByCar_number", car_number);
+	}
+	
 	public List<User> selectAllUser(){
 		return session.selectList("UserMapper.selectAllUser");
 	}
