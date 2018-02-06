@@ -7,7 +7,7 @@ $(function(){
 		}else{
 			localStorage.removeItem("saveId");
 		}*/
-		var url = "login";
+		var url = "admin/login";
 		var admin = { "admin_id" : "", "password" : "", "result" : 0 };
 		admin.admin_id = $('#loginId').val().trim();
 		admin.password = $('#loginPassword').val().trim();

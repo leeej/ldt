@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/old/fancybox.css?1234" />
 <link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/social-icons.css?buildtime=1234" media="screen,projection" />
 <link rel="stylesheet" type="text/css" href="admin/files/main_style.css?1517743598" title="wsite-theme-css" />
+<link rel="stylesheet" type="text/css" href="admin/files/theme/font_test.css"/>
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
 
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
@@ -35,7 +36,7 @@
 .fancybox-title {}
 .wslide-caption-text {}
 .wsite-phone {}
-.wsite-headline,.wsite-header-section .wsite-content-title {font-family:"Playfair Display" !important;font-weight:400 !important;}
+.wsite-headline,.wsite-header-section .wsite-content-title {font-weight:400 !important;}
 .wsite-headline-paragraph,.wsite-header-section .paragraph {}
 .wsite-button-inner {font-weight: bold !important;}
 .wsite-not-footer blockquote {}
@@ -81,7 +82,7 @@ var STYLE_PREFIX = 'wsite';
 	
 	function initFlyouts(){
 		initPublishedFlyoutMenus(
-			[{"id":"286195793459059658","title":"Home","url":"/ldt/admin","target":"","nav_menu":false,"nonclickable":false}],
+			[{"id":"286195793459059658","title":"Home","url":"/admin","target":"","nav_menu":false,"nonclickable":false}],
 			"286195793459059658",
 			'',
 			'active',
@@ -97,23 +98,24 @@ var STYLE_PREFIX = 'wsite';
 	</head>
 	<!-- Script Inserted -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script type='text/javascript' src="/ldt/js/login.js"></script>
+	<script type='text/javascript' src="/js/login.js"></script>
 	
 	<body class="header-page  wsite-page-index  full-width-body-off header-overlay-off alt-nav-off  wsite-theme-light"><div class="wrapper">
     <div class="birdseye-header">
       <div class="nav-wrap">
         <div class="container">
           <div class="logo"><span class="wsite-logo">
-
+<!-- 
 	<a href="">
-		<img src="admin/images/logo1.jpg" alt="Oikos" />
+		<img src="admin/images/logo1.jpg" alt="Lotte" />
 	</a>
+ -->
 
 </span></div>
           <div class="nav desktop-nav"><ul class="wsite-menu-default">
 		<li id="active" class="wsite-menu-item-wrap">
 			<a
-						href="/ldt/admin"
+						href="/admin"
 				class="wsite-menu-item"
 				>
 				Home
@@ -130,18 +132,27 @@ var STYLE_PREFIX = 'wsite';
     <div class="banner-wrap">
       <div class="wsite-elements wsite-not-footer wsite-header-elements">
 	<div class="wsite-section-wrap">
-	<div  class="wsite-section wsite-header-section wsite-section-bg-image" style="height: 721px;background-image: url(&quot;admin/images/admin_background.jpg&quot;) ;background-repeat: no-repeat ;background-position: 50.00% 100.00% ;background-size: 100% ;background-color: transparent ;background-size: cover;" >
+	<div  class="wsite-section wsite-header-section wsite-section-bg-image" 
+		style="height: 721px;
+		background-image: url(&quot;admin/images/Background_RIA.jpg&quot;);
+		background-repeat: no-repeat;
+		background-position: 50.00% 50.00%;
+		background-size: 100%;
+		background-color: transparent;
+		background-size: cover;
+		opacity: 0.8;" >
 		<div class="wsite-section-content">
 			
           <div class="container">
             <div class="banner">
 				<div class="wsite-section-elements">
-					<div class="paragraph"><font color="#3f3f3f" size="4">LOTTE GRS</font></div>
+					<div class="paragraph"><font color="white" size="4">LOTTE GRS</font></div>
 
-<h2 class="wsite-content-title"><strong><font color="#3f3f3f">LOTTE RIA</font></strong></h2>
+<h2 class="wsite-content-title"><strong><font color="white">LOTTE RIA</font></strong></h2>
 
 <div><div id="756977728388425340" align="center" style="width: 100%; overflow-y: hidden;" class="wcustomhtml">
-	<input type="text" id="loginId" placeholder=" ID" style="line-height:40px;">
+	<input type="text" id="loginId" placeholder=" ID" style="line-height:40px; margin: 10px;">
+	<br>
 	<input type="password" id="loginPassword" placeholder=" Password" style="line-height:40px;">
 </div>
 

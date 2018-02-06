@@ -1,0 +1,12 @@
+@charset "UTF-8";
+@font-face { 
+	font-family: 'NANUMSQUAREROUNDB'; 
+	src: url(font_N/NANUMSQUAREROUNDB.TTF) format('truetype'); 
+} 
+	.banner-wrap div.paragraph { 
+		font-family: NANUMSQUAREROUNDB; 
+	}
+	.wsite-headline, .wsite-header-section .wsite-content-title { 
+		font-family: NANUMSQUAREROUNDB; 
+	}
+
