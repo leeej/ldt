@@ -61,6 +61,7 @@
 				</div>
 	</div>
 
+<<<<<<< HEAD
 <c:choose>
 	<c:when test="${empty sessionScope.user }">잘못된 접근입니다.</c:when>
 	<c:otherwise>
@@ -87,6 +88,7 @@
 					<table class="wsite-multicol-table">
 						<tbody class="wsite-multicol-tbody">
 							<tr class="wsite-multicol-tr">
+<<<<<<< HEAD
 								<td class="wsite-multicol-col" style="width:50%; padding:0 15px;">
 									<div><div class="wsite-image wsite-image-border-none " style="padding-top:0px;padding-bottom:0px;margin-left:0px;margin-right:0px;text-align:center">
 										<h2 class="wsite-content-title" style="text-align:center;">
@@ -106,6 +108,7 @@
 						</table>
 					</div>
 				</div>
+<<<<<<< HEAD
 				</div>
 			</c:when>
 			<c:otherwise>
@@ -239,5 +242,6 @@
 	<div class="overlay w-navpane-close"></div>
 	<script type="text/javascript" src="order/files/theme/plugins.js"></script>
 	<script type="text/javascript" src="order/files/theme/custom.js"></script>
+
 	</body>
 </html>
