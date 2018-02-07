@@ -128,6 +128,15 @@ public class PaymentController {
 		String forwardURL = "/order/receipt.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(forwardURL);
 		Payment payment = paymentDAO.selectByPayment_id(payment_id);
+
+		int total_price = 0;
+		for(Orderline orderline: payment.getOrderline()){
+			int price = orderline.getMenu().getMenu_price(); 
+			int quantity = orderline.getQuantity();
+			total_price += price*quantity;
+		}
+		payment.setTotal_price(total_price);
+		
 		request.setAttribute("payment", payment);
 		try {
 			dispatcher.forward(request, response);

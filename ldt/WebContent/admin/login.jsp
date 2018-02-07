@@ -13,8 +13,8 @@
 		<link id="wsite-base-style" rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/sites.css?buildTime=1234" />
 <link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/old/fancybox.css?1234" />
 <link rel="stylesheet" type="text/css" href="http://cdn2.editmysite.com/css/social-icons.css?buildtime=1234" media="screen,projection" />
-<link rel="stylesheet" type="text/css" href="admin/files/main_style.css?1517743598" title="wsite-theme-css" />
-<link rel="stylesheet" type="text/css" href="admin/files/theme/font_test.css"/>
+<link rel="stylesheet" type="text/css" href="/admin/files/main_style.css?1517743598" title="wsite-theme-css" />
+<link rel="stylesheet" type="text/css" href="/admin/files/theme/font_test.css"/>
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
 <link href='http://fonts.googleapis.com/css?family=Lato:400,300,300italic,700,400italic,700italic&subset=latin,latin-ext' rel='stylesheet' type='text/css' />
@@ -117,8 +117,7 @@ var STYLE_PREFIX = 'wsite';
 		background-position: 50.00% 50.00%;
 		background-size: 100%;
 		background-color: transparent;
-		background-size: cover;
-		opacity: 0.8;" >
+		background-size: cover;" >
 		<div class="wsite-section-content">
 			
           <div class="container">
@@ -191,8 +190,8 @@ var STYLE_PREFIX = 'wsite';
     </ul>
   </div>
 
-	<script type="text/javascript" src="files/theme/plugins.js"></script>
-  <script type="text/javascript" src="files/theme/custom.js"></script>
+	<script type="text/javascript" src="/admin/files/theme/plugins.js"></script>
+  <script type="text/javascript" src="/admin/files/theme/custom.js"></script>
 
 		
 	</body>

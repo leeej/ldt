@@ -35,7 +35,7 @@
 		JOIN user ON payment.user_id = user.user_id
 		JOIN orderline ON payment.payment_id = orderline.order_id
 		JOIN menu ON menu.menu_id = orderline.menu_id
-		ORDER BY payment_id
+		ORDER BY payment_id DESC
 	</select>
 	
 	<select id="selectByCar_number" resultMap="PaymentMap" parameterType="string">
@@ -43,7 +43,13 @@
 		JOIN user ON payment.user_id = user.user_id
 		JOIN orderline ON payment.payment_id = orderline.order_id
 		JOIN menu ON menu.menu_id = orderline.menu_id
-		WHERE user.car_number = #{car_number} AND payment.is_paid = 'N'
+		WHERE user.car_number = #{car_number} AND payment.is_paid = 'N' 
+		AND payment_id = (
+		SELECT MAX(payment_id) FROM payment 
+		JOIN user ON payment.user_id = user.user_id
+		JOIN orderline ON payment.payment_id = orderline.order_id
+		JOIN menu ON menu.menu_id = orderline.menu_id
+		WHERE user.car_number = #{car_number} AND payment.is_paid = 'N');
 	</select>
 
 	<select id="selectByPayment_id" resultMap="PaymentMap" parameterType="int">
